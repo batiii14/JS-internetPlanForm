@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>High-Speed Internet Plans</title>
+    <style>
+        table,
+        th,
+        td {
+            border: 1px solid black;
+        }
+    </style>
+</head>
+
+<body>
+    <center>
+        <h1>High-Speed Internet Plans</h1>
+        <br>
+        <form action="">
+
+            <table style="width: 40%; border-style: solid; text-align: center;">
+                <thead>
+                    <tr>
+                        <th>Service</th>
+                        <th>Download Speed (Mbps)</th>
+                        <th>Price</th>
+                        <th>Subscription</th>
+                    </tr>
+                </thead>
+                <tbody>
+
+                    <tr>
+                        <td>Basic</td>
+                        <td>5</td>
+                        <td>50</td>
+                        <td><input type="radio" name="sub" value="50" id="sub50"
+                                required>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Express</td>
+                        <td>25</td>
+                        <td>100</td>
+                        <td><input type="radio" name="sub" value="100"
+                                id="sub100">
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Extreme</td>
+                        <td>50</td>
+                        <td>150</td>
+                        <td><input type="radio" name="sub" value="150"
+                                id="sub150">
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Ultimate</td>
+                        <td>150</td>
+                        <td>250</td>
+                        <td><input type="radio" name="sub" value="250"
+                                id="sub250">
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Duration</td>
+                        <td colspan="3">
+                            <select name="duration" id="duration"
+                                onclick="calc();">
+                                <option value="1"">1 Month</option>
+                                <option value=" 2">2 Months</option>
+                                <option value="3">3 Months</option>
+                                <option value="6">6 Months</option>
+                                <option value="12">12 Months</option>
+                            </select>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </form>
+        <h4 id="total_disp"> <span></span>.
+        </h4>
+    </center>
+
+
+    <script>
+        function calc() {
+            var duration = parseInt(document.getElementById("duration").value);
+            var total = 0;
+
+
+            if (document.getElementById("sub50").checked) {
+                total = duration * 50;
+            } else if (document.getElementById("sub100").checked) {
+                total = duration * 100;
+            }
+            else if (document.getElementById("sub150").checked) {
+                total = duration * 150;
+            }
+            else if (document.getElementById("sub250").checked) {
+                total = duration * 250;
+            } else {
+                alert("Please select service first.");
+                return;
+            }
+
+            document.getElementById("total_disp").innerHTML = "The price of your subscription is " + total;
+        }
+    </script>
+</body>
+
+</html>
